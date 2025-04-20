@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color: black;
+            align-items: center;
+            font-size: 30px;
+        }
+
+        body {
+            margin: 250px;
+            padding: 25px;
+            /* justify-content: center; */
+            text-align: center;
+        }
+
+        textarea {
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            /* justify-content: center; */
+        }
+
+        .back {
+            color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="bio" placeholder="Type your bio..."></textarea>
+    <p id="count"></p>
+
+    <p id="help" style="display:none;">Max 100 characters</p>
+
+    <p id="total"></p>
+
+    <script>
+        var len = "";
+        $("#bio").keyup(function () {            //keyup: when a key is released
+
+            len = $(this).val().length;      // length count in textarea
+
+            $("#count").text("Characters: " + len);
+
+            event.preventDefault();           // stop autoload page
+
+            let copy = $(this).val();
+            $("#total").addClass("back");
+            $("#total").text(copy);
+        });
+
+        $("#bio").hover(
+            function () { $("#help").show(); },
+            function () { $("#help").hide(); }
+        );
+    </script>
+</body>
+
+</html>

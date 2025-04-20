@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard-Controlled Theme</title>
+    <script src="jquery.js"></script>
+</head>
+
+<body>
+    <style>
+        .darkMode {
+            background-color: black;
+            color: white;
+        }
+    </style>
+
+    <p>Press 'T' key to toggle dark mode.</p>
+
+    <script>
+        $(window).on("load",function(){
+              if(localStorage.getItem("mode")==="dark"){
+                $("body").addClass("darkMode");
+              }
+        });
+
+        $("#document").ready(function(){
+             $("body").on("keydown",function(e){
+                if(e.key==="t"||e.key=="T"){
+                   $("body").toggleClass("darkMode");
+                   let isDark=$("body").hasClass("darkMode");
+                   localStorage.setItem("mode",isDark?"dark":"light");
+                };
+             })
+        });
+    </script>
+
+</body>
+
+</html>
