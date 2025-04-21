@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color Changer</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 100px;
+            font-weight: 600;
+        }
+
+        body {
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        .colorchange {
+            height: 50px;
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 id="headding">Change Bacground Color</h1>
+        <input type="color" class="colorchange">
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".colorchange").on("input change", function () {     //input event: triggers every time the color changes while selecting.
+                                                                   //change event: triggers after the color is finalized.
+
+                $("body").css("background-color", $(this).val());
+                if ($(".colorchange").val() <= "#242424") {
+                    $("h1").css("color", "white");
+                }
+                else {
+                    $("h1").css("color", "black");
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>
